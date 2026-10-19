@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherMap SPA Project</title>
+    
+    <!-- استدعاء مكتبة الخرائط Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- استدعاء خط Roboto المطلوب في السلايد 7 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- ربط ملف التنسيق -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <!-- العنوان بحجم 2x مع ظل خفيف -->
+        <div class="top-bar">
+            <h2>WeatherMap SPA</h2>
+            <p>Advanced Web Technologies Course Project</p>
+        </div>
+        
+        <!-- نموذج البحث (تم استخدام form لتطبيق preventDefault) -->
+        <form id="searchForm" class="search-section">
+            <input type="text" id="cityInput" placeholder="Enter city name (e.g., Port Sudan, Khartoum)..." required>
+            <button type="submit" id="submitSearchBtn">Get Weather</button>
+        </form>
+
+        <!-- مؤشر التحميل -->
+        <div id="loadingSpinner" class="spinner hidden"></div>
+
+        <div class="app-content-area">
+            <!-- كرت عرض البيانات الجانبي -->
+            <div id="weatherResultPanel" class="result-card hidden">
+                <h3 id="displayCityName">City Name</h3>
+                <div class="stat-row"><strong>Temperature:</strong> <span id="valTemp">-</span></div>
+                <div class="stat-row"><strong>Condition:</strong> <span id="valCondition">-</span></div>
+                <div class="stat-row"><strong>Humidity:</strong> <span id="valHumidity">-</span></div>
+                <div class="stat-row"><strong>Wind Speed:</strong> <span id="valWind">-</span></div>
+            </div>
+
+            <!-- حاوية الخريطة 70vh -->
+            <div id="mapContainer"></div>
+        </div>
+    </div>
+
+    <!-- استدعاء مكتبة Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="app.js"></script>
+</body>
+</html>
